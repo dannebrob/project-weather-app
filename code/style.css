@@ -39,7 +39,6 @@ body {
 }
 
 /* Navigation */
-
 nav {
   padding-top: 1.5rem;
 }
@@ -59,9 +58,6 @@ li {
   list-style: none;
   font-size: 2rem;
   padding: 2rem;
-}
-li:active {
-  text-decoration: underline;
 }
 
 li:hover,
