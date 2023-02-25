@@ -8,6 +8,7 @@ const cityList = document.getElementById("city-list");
 const myLocation = document.getElementById("my-location");
 const cityOne = document.getElementById("city-one");
 const cityTwo = document.getElementById("city-two");
+const cityThree = document.getElementById("city-three");
 const sunUpTime = document.getElementById("sun-up-time");
 const sunDownTime = document.getElementById("sun-down-time");
 const arrowButton = document.getElementById("arrow-button");
@@ -170,6 +171,12 @@ cityOne.addEventListener("click", () => {
 cityTwo.addEventListener("click", () => {
   cityList.classList.toggle("hidden");
   weatherFetch("60.192059", "24.945831");
+  loadHtml();
+  clearWeekList();
+});
+cityThree.addEventListener("click", () => {
+  cityList.classList.toggle("hidden");
+  weatherFetch("59.6173", "16.5422");
   loadHtml();
   clearWeekList();
 });
