@@ -44,21 +44,22 @@ const weatherFetch = (lat, lon) => {
       const sunSetTime = new Date(apiResponse.sys.sunset * 1000);
       sunGoesDown = sunSetTime.toLocaleTimeString([], { timeStyle: "short" });
       getForecastData();
+    })
+    .then(() => {
+      loadHtml();
     });
 };
 
-//Updates the html after 1000ms
+//Updates the html
 const loadHtml = () => {
-  setTimeout(() => {
-    currentCity.innerHTML = `${apiResponse.name}`;
-    currentTemp.innerHTML = `${Math.round(apiResponse.main.temp * 10) / 10} °C`;
-    currentWeather.innerHTML = `${apiResponse.weather.map((weather) => {
-      return weather.description;
-    })}`;
-    sunUpTime.innerHTML = `${sunGoesUp}`;
-    sunDownTime.innerHTML = `${sunGoesDown}`;
-    topRightIcon.innerHTML = `<img id="top-right-icon" src="http://openweathermap.org/img/wn/${apiResponse.weather[0].icon}@4x.png">`;
-  }, 1000);
+  currentCity.innerHTML = `${apiResponse.name}`;
+  currentTemp.innerHTML = `${Math.round(apiResponse.main.temp * 10) / 10} °C`;
+  currentWeather.innerHTML = `${apiResponse.weather.map((weather) => {
+    return weather.description;
+  })}`;
+  sunUpTime.innerHTML = `${sunGoesUp}`;
+  sunDownTime.innerHTML = `${sunGoesDown}`;
+  topRightIcon.innerHTML = `<img id="top-right-icon" src="http://openweathermap.org/img/wn/${apiResponse.weather[0].icon}@4x.png">`;
 };
 
 let clearWeekList = () => {
